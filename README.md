@@ -1,267 +1,138 @@
-<h1 align="center">Lama Cleaner</h1>
-<p align="center">A free and open-source inpainting tool powered by SOTA AI model.</p>
+<h1 align="center">IOPaint</h1>
+<p align="center">A free and open-source inpainting & outpainting tool powered by SOTA AI model.</p>
 
 <p align="center">
-  <a href="https://github.com/Sanster/lama-cleaner">
-    <img alt="total download" src="https://pepy.tech/badge/lama-cleaner" />
+  <a href="https://github.com/Sanster/IOPaint">
+    <img alt="total download" src="https://pepy.tech/badge/iopaint" />
   </a>
-  <a href="https://pypi.org/project/lama-cleaner/">
-    <img alt="version" src="https://img.shields.io/pypi/v/lama-cleaner" />
+  <a href="https://pypi.org/project/iopaint">
+    <img alt="version" src="https://img.shields.io/pypi/v/iopaint" />
   </a>
-  <a href="https://colab.research.google.com/drive/1e3ZkAJxvkK3uzaTGu91N9TvI_Mahs0Wb?usp=sharing">
-    <img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
-  </a>
-
-  <a href="https://huggingface.co/spaces/Sanster/Lama-Cleaner-lama">
-    <img alt="Hugging Face Spaces" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue" />
-  </a>
-
   <a href="">
-    <img alt="python version" src="https://img.shields.io/pypi/pyversions/lama-cleaner" />
+    <img alt="python version" src="https://img.shields.io/pypi/pyversions/iopaint" />
   </a>
-  <a href="https://hub.docker.com/r/cwq1913/lama-cleaner">
-    <img alt="version" src="https://img.shields.io/docker/pulls/cwq1913/lama-cleaner" />
+  <a href="https://huggingface.co/spaces/Sanster/iopaint-lama">
+    <img alt="HuggingFace Spaces" src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Spaces-blue" />
+  </a>
+  <a href="https://colab.research.google.com/drive/1TKVlDZiE3MIZnAUMpv2t_S4hLr6TUY1d?usp=sharing">
+    <img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" />
   </a>
 </p>
 
-https://user-images.githubusercontent.com/3998421/196976498-ba1ad3ab-fa18-4c55-965f-5c6683141375.mp4
+|Erase([LaMa](https://www.iopaint.com/models/erase/lama))|Replace Object([PowerPaint](https://www.iopaint.com/models/diffusion/powerpaint))|
+|-----|----|
+|<video src="https://github.com/Sanster/IOPaint/assets/3998421/264bc27c-0abd-4d8b-bb1e-0078ab264c4a">  | <video src="https://github.com/Sanster/IOPaint/assets/3998421/1de5c288-e0e1-4f32-926d-796df0655846">|
+
+|Draw Text([AnyText](https://www.iopaint.com/models/diffusion/anytext))|Out-painting([PowerPaint](https://www.iopaint.com/models/diffusion/powerpaint))|
+|---------|-----------|
+|<video src="https://github.com/Sanster/IOPaint/assets/3998421/ffd4eda4-f7d4-4693-93d8-d2cd5aa7c6d6">|<video src="https://github.com/Sanster/IOPaint/assets/3998421/c4af8aef-8c29-49e0-96eb-0aae2f768da2">|
+
 
 ## Features
 
-- Completely free and open-source
-- Fully self-hosted
-- [Windows 1-Click Installer](./scripts/README.md)
-- Classical image inpainting algorithm powered by [cv2](https://docs.opencv.org/3.4/df/d3d/tutorial_py_inpainting.html)
-- Multiple SOTA AI models
-  1. [LaMa](https://github.com/saic-mdal/lama)
-  2. [LDM](https://github.com/CompVis/latent-diffusion)
-  3. [ZITS](https://github.com/DQiaole/ZITS_inpainting)
-  4. [MAT](https://github.com/fenglinglwb/MAT)
-  5. [FcF](https://github.com/SHI-Labs/FcF-Inpainting)
-  6. [SD1.5/SD2](https://github.com/runwayml/stable-diffusion)
-  7. [Manga](https://github.com/msxie92/MangaInpainting)
-  8. [Paint by Example](https://github.com/Fantasy-Studio/Paint-by-Example) [YouTube Demo](https://www.youtube.com/watch?v=NSAN3TzfhaI&ab_channel=PanicByte)
-- Support CPU & GPU
-- Various inpainting [strategy](#inpainting-strategy)
-- Run as a desktop APP
-- [Interactive Segmentation](https://github.com/Sanster/lama-cleaner/releases/tag/0.28.0) on any object. [YouTube Demo](https://www.youtube.com/watch?v=xHdo8a4Mn2g&ab_channel=PanicByte)
+- Completely free and open-source, fully self-hosted, support CPU & GPU & Apple Silicon
+- [Windows 1-Click Installer](https://www.iopaint.com/install/windows_1click_installer)
+- [OptiClean](https://apps.apple.com/ca/app/opticlean/id6452387177): macOS & iOS App for object erase
+- Supports various AI [models](https://www.iopaint.com/models) to perform erase, inpainting or outpainting task.
+  - [Erase models](https://www.iopaint.com/models#erase-models): These models can be used to remove unwanted object, defect, watermarks, people from image.
+  - Diffusion models: These models can be used to replace objects or perform outpainting. Some popular used models include:
+    - [runwayml/stable-diffusion-inpainting](https://huggingface.co/runwayml/stable-diffusion-inpainting)
+    - [diffusers/stable-diffusion-xl-1.0-inpainting-0.1](https://huggingface.co/diffusers/stable-diffusion-xl-1.0-inpainting-0.1)
+    - [andregn/Realistic_Vision_V3.0-inpainting](https://huggingface.co/andregn/Realistic_Vision_V3.0-inpainting)
+    - [Lykon/dreamshaper-8-inpainting](https://huggingface.co/Lykon/dreamshaper-8-inpainting)
+    - [Sanster/anything-4.0-inpainting](https://huggingface.co/Sanster/anything-4.0-inpainting)
+    - [BrushNet](https://www.iopaint.com/models/diffusion/brushnet)
+    - [PowerPaintV2](https://www.iopaint.com/models/diffusion/powerpaint_v2)
+    - [Sanster/AnyText](https://huggingface.co/Sanster/AnyText)
+    - [Fantasy-Studio/Paint-by-Example](https://huggingface.co/Fantasy-Studio/Paint-by-Example)
 
-## Usage
+- [Plugins](https://www.iopaint.com/plugins):
+  - [Segment Anything](https://iopaint.com/plugins/interactive_seg): Accurate and fast Interactive Object Segmentation
+  - [RemoveBG](https://iopaint.com/plugins/rembg): Remove image background or generate masks for foreground objects
+  - [Anime Segmentation](https://iopaint.com/plugins/anime_seg): Similar to RemoveBG, the model is specifically trained for anime images.
+  - [RealESRGAN](https://iopaint.com/plugins/RealESRGAN): Super Resolution
+  - [GFPGAN](https://iopaint.com/plugins/GFPGAN): Face Restoration
+  - [RestoreFormer](https://iopaint.com/plugins/RestoreFormer): Face Restoration
+- [FileManager](https://iopaint.com/file_manager): Browse your pictures conveniently and save them directly to the output directory.
 
-A great introductory [youtube video](https://www.youtube.com/watch?v=aYia7Jvbjno&ab_channel=Aitrepreneur) made by **
-Aitrepreneur**
-
-<details>
-<summary>1. Remove any unwanted things on the image</summary>
-
-| Usage                         | Before                                        | After                                               |
-| ----------------------------- | --------------------------------------------- | --------------------------------------------------- |
-| Remove unwanted things        | ![unwant_object2](./assets/unwant_object.jpg) | ![unwant_object2](./assets/unwant_object_clean.jpg) |
-| Remove unwanted person        | ![unwant_person](./assets/unwant_person.jpg)  | ![unwant_person](./assets/unwant_person_clean.jpg)  |
-| Remove text                   | ![text](./assets/unwant_text.jpg)             | ![text](./assets/unwant_text_clean.jpg)             |
-| Remove watermark              | ![watermark](./assets/watermark.jpg)          | ![watermark_clean](./assets/watermark_cleanup.jpg)  |
-| Remove text balloons on manga | ![manga](./assets/manga.png)                  | ![manga_clean](./assets/manga_clean.png)            |
-
-</details>
-
-<details>
-<summary>2. Fix old photo</summary>
-
-| Usage         | Before                              | After                                           |
-| ------------- | ----------------------------------- | ----------------------------------------------- |
-| Fix old photo | ![oldphoto](./assets/old_photo.jpg) | ![oldphoto_clean](./assets/old_photo_clean.jpg) |
-
-</details>
-
-<details>
-<summary>3. Replace something on the image </summary>
-
-SD1.5/SD2
-
-| Usage                  | Before                   | After                                                          |
-| ---------------------- | ------------------------ | -------------------------------------------------------------- |
-| Text Driven Inpainting | ![dog](./assets/dog.jpg) | Prompt: a fox sitting on a bench<br/> ![fox](./assets/fox.jpg) |
-
-Paint by Example
-
-| Original Image                                                                                                   | Example Image                                                                                                                                     | Result Image                                                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://user-images.githubusercontent.com/3998421/206908542-c6465ca3-6414-4593-8318-0c8b569e7682.jpg"> | [<img src="https://user-images.githubusercontent.com/3998421/206908517-bd7f62d2-464a-43bc-892e-dbea45f7b104.jpeg">](https://youtu.be/NSAN3TzfhaI) | [<img src="https://user-images.githubusercontent.com/3998421/206903752-0463a0cf-146d-4125-a969-8fe20127a09b.jpeg">](https://youtu.be/NSAN3TzfhaI) |
-
-</details>
 
 ## Quick Start
 
-The easiest way to use Lama Cleaner is to install it using `pip`:
+### Start webui
+
+IOPaint provides a convenient webui for using the latest AI models to edit your images.
+You can install and start IOPaint easily by running following command:
 
 ```bash
-pip install lama-cleaner
+# In order to use GPU, install cuda version of pytorch first.
+# pip3 install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu118
+# AMD GPU users, please utilize the following command, only works on linux, as pytorch is not yet supported on Windows with ROCm.
+# pip3 install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/rocm5.6
 
-# Models will be downloaded at first time used
-lama-cleaner --model=lama --device=cpu --port=8080
-# Lama Cleaner is now running at http://localhost:8080
+pip3 install iopaint
+iopaint start --model=lama --device=cpu --port=8080
 ```
 
-If you prefer to use docker, you can check out [docker](#docker)
+That's it, you can start using IOPaint by visiting http://localhost:8080 in your web browser.
 
-If you hava no idea what is docker or pip, please check [One Click Installer](./scripts/README.md)
+All models will be downloaded automatically at startup. If you want to change the download directory, you can add `--model-dir`. More documentation can be found [here](https://www.iopaint.com/install/download_model)
 
-Available command line arguments:
+You can see other supported models at [here](https://www.iopaint.com/models) and how to use local sd ckpt/safetensors file at [here](https://www.iopaint.com/models#load-ckptsafetensors).
 
-| Name                 | Description                                                                                                   | Default  |
-| -------------------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-| --model              | lama/ldm/zits/mat/fcf/sd1.5/manga/sd2/paint_by_example See details in [Inpaint Model](#inpainting-model)      | lama     |
-| --sd-disable-nsfw    | Disable stable-diffusion NSFW checker.                                                                        |          |
-| --sd-cpu-textencoder | Always run stable-diffusion TextEncoder model on CPU.                                                         |          |
-| --sd-enable-xformers | Enable xFormers optimizations. See: [facebookresearch/xformers](https://github.com/facebookresearch/xformers) |          |
-| --local-files-only   | Once the model as downloaded, you can pass this arg to avoid diffusers connect to Hugging Face server          |          |
-| --cpu-offload        | sd/paint_by_example model, offloads all models to CPU, sacrifice speed for reducing vRAM usage.               |
-| --no-half            | Using full precision for sd/paint_by_exmaple model                                                            |          |
-| --device             | cuda / cpu / mps                                                                                              | cuda     |
-| --port               | Port for backend flask web server                                                                             | 8080     |
-| --gui                | Launch lama-cleaner as a desktop application                                                                  |          |
-| --gui_size           | Set the window size for the application                                                                       | 1200 900 |
-| --input              | Path to image you want to load by default                                                                     | None     |
-| --debug              | Enable debug mode for flask web server                                                                        |          |
+### Plugins
 
-## Inpainting Model
+You can specify which plugins to use when starting the service, and you can view the commands to enable plugins by using `iopaint start --help`. 
 
-| Model | Description                                                                                                                                                                                                            | Config                                                                                                                                                                                                                                                                            |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| cv2   | :+1: No GPU is required, and for simple backgrounds, the results may even be better than AI models.                                                                                                                    |                                                                                                                                                                                                                                                                                   |
-| LaMa  | :+1: Generalizes well on high resolutions(~2k)<br/>                                                                                                                                                                    |                                                                                                                                                                                                                                                                                   |
-| LDM   | :+1: Possible to get better and more detail result <br/> :+1: The balance of time and quality can be achieved by adjusting `steps` <br/> :neutral_face: Slower than GAN model<br/> :neutral_face: Need more GPU memory | `Steps`: You can get better result with large steps, but it will be more time-consuming <br/> `Sampler`: ddim or [plms](https://arxiv.org/abs/2202.09778). In general plms can get [better results](https://github.com/Sanster/lama-cleaner/releases/tag/0.13.0) with fewer steps |
-| ZITS  | :+1: Better holistic structures compared with previous methods <br/> :neutral_face: Wireframe module is **very** slow on CPU                                                                                           | `Wireframe`: Enable edge and line detect                                                                                                                                                                                                                                          |
-| MAT   | TODO                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                   |
-| FcF   | :+1: Better structure and texture generation <br/> :neutral_face: Only support fixed size (512x512) input                                                                                                              |                                                                                                                                                                                                                                                                                   |
-| SD1.5 | :+1: SOTA text-to-image diffusion model                                                                                                                                                                                |                                                                                                                                                                                                                                                                                   |
+More demonstrations of the Plugin can be seen [here](https://www.iopaint.com/plugins)
 
-<details>
-<summary> See model comparison detail</summary>
+```bash
+iopaint start --enable-interactive-seg --interactive-seg-device=cuda
+```
 
-**LaMa vs LDM**
+### Batch processing
 
-| Original Image                                                                                                                            | LaMa                                                                                                                                                   | LDM                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![photo-1583445095369-9c651e7e5d34](https://user-images.githubusercontent.com/3998421/156923525-d6afdec3-7b98-403f-ad20-88ebc6eb8d6d.jpg) | ![photo-1583445095369-9c651e7e5d34_cleanup_lama](https://user-images.githubusercontent.com/3998421/156923620-a40cc066-fd4a-4d85-a29f-6458711d1247.png) | ![photo-1583445095369-9c651e7e5d34_cleanup_ldm](https://user-images.githubusercontent.com/3998421/156923652-0d06c8c8-33ad-4a42-a717-9c99f3268933.png) |
+You can also use IOPaint in the command line to batch process images:
 
-**LaMa vs ZITS**
+```bash
+iopaint run --model=lama --device=cpu \
+--image=/path/to/image_folder \
+--mask=/path/to/mask_folder \
+--output=output_dir
+```
 
-| Original Image                                                                                                         | ZITS                                                                                                                       | LaMa                                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| ![zits_original](https://user-images.githubusercontent.com/3998421/180464918-eb13ebfb-8718-461c-9e8b-7f6d8bb7a84f.png) | ![zits_compare_zits](https://user-images.githubusercontent.com/3998421/180464914-4db722c9-047f-48fe-9bb4-916ba09eb5c6.png) | ![zits_compare_lama](https://user-images.githubusercontent.com/3998421/180464903-ffb5f770-4372-4488-ba76-4b4a8c3323f5.png) |
+`--image` is the folder containing input images, `--mask` is the folder containing corresponding mask images.
+When `--mask` is a path to a mask file, all images will be processed using this mask.
 
-Image is from [ZITS](https://github.com/DQiaole/ZITS_inpainting) paper. I didn't find a good example to show the
-advantages of ZITS and let me know if you have a good example. There can also be possible problems with my code, if you
-find them, please let me know too!
-
-**LaMa vs FcF**
-
-| Original Image                                                                                                    | LaMa                                                                                                                   | FcF                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| ![texture](https://user-images.githubusercontent.com/3998421/188305027-a4260545-c24e-4df7-9739-ac5dc3cae879.jpeg) | ![texture_lama](https://user-images.githubusercontent.com/3998421/188305024-2064ed3e-5af4-4843-ac10-7f9da71e15f8.jpeg) | ![texture_fcf](https://user-images.githubusercontent.com/3998421/188305006-a08d2896-a65f-43d5-b9a5-ef62c3129f0c.jpeg) |
-
-**LaMa vs Manga**
-
-Manga model works better on high-quality manga image then LaMa model.
-
-Original Image
-![manga](./assets/manga.png)
-
-| Model                                     | 1080x740                                                                                                                | 1470x1010                                                                                                                |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Manga                                     | ![manga_1080x740](https://user-images.githubusercontent.com/3998421/202676629-54f40f20-c55b-4e6d-bcc7-0a4e81fbb27d.png) | ![manga_1470x1010](https://user-images.githubusercontent.com/3998421/202675839-4f8012d5-1c10-47ea-9628-20512e86f192.png) |
-| [LaMa](https://github.com/saic-mdal/lama) | ![lama_1080x740](https://user-images.githubusercontent.com/3998421/202675704-53fa7a3d-ec74-4044-a19c-c673d74bdd28.png)  | ![lama_1470x1010](https://user-images.githubusercontent.com/3998421/202675746-1e642367-f5d0-4b48-aa8b-5d82f2e29082.png)  |
-
-</details>
-
-## Inpainting Strategy
-
-Lama Cleaner provides three ways to run inpainting model on images, you can change it in the settings dialog.
-
-| Strategy     | Description                                                                                            | VRAM   | Speed             |
-| ------------ | ------------------------------------------------------------------------------------------------------ | ------ | ----------------- |
-| **Original** | Use the resolution of the original image                                                               | High   | :zap:             |
-| **Resize**   | Resize the image to a smaller size before inpainting. The area outside the mask will not loss quality. | Midium | :zap: :zap:       |
-| **Crop**     | Crop masking area from the original image to do inpainting                                             | Low    | :zap: :zap: :zap: |
-
-## Download Model Manually
-
-If you have problems downloading the model automatically when lama-cleaner start,
-you can download it manually. By default lama-cleaner will load model from `TORCH_HOME=~/.cache/torch/hub/checkpoints/`,
-you can set `TORCH_HOME` to other folder and put the models there.
-
-- GitHub:
-  - [LaMa](https://github.com/Sanster/models/releases/tag/add_big_lama)
-  - [LDM](https://github.com/Sanster/models/releases/tag/add_ldm)
-  - [ZITS](https://github.com/Sanster/models/releases/tag/add_zits)
-  - [MAT](https://github.com/Sanster/models/releases/tag/add_mat)
-  - [FcF](https://github.com/Sanster/models/releases/tag/add_fcf)
-- Baidu:
-  - https://pan.baidu.com/s/1vUd3BVqIpK6e8N_EA_ZJfw
-  - passward: flsu
+You can see more information about the available models and plugins supported by IOPaint below.
 
 ## Development
 
-Only needed if you plan to modify the frontend and recompile yourself.
+Install [nodejs](https://nodejs.org/en), then install the frontend dependencies.
 
-### Frontend
-
-Frontend code are modified from [cleanup.pictures](https://github.com/initml/cleanup.pictures), You can experience their
-great online services [here](https://cleanup.pictures/).
-
-- Install dependencies:`cd lama_cleaner/app/ && yarn`
-- Start development server: `yarn start`
-- Build: `yarn build`
-
-## Docker
-
-You can use [pre-build docker image](https://github.com/Sanster/lama-cleaner#run-docker-cpu) to run Lama Cleaner. The
-model will be downloaded to the cache directory when first time used.
-You can mount existing cache directory to start the container,
-so you don't have to download the model every time you start the container.
-
-The cache directories for different models correspond as follows:
-
-- lama/ldm/zits/mat/fcf: /root/.cache/torch
-- sd1.5: /root/.cache/huggingface
-
-### Run Docker (cpu)
-
-```
-docker run -p 8080:8080 \
--v /path/to/torch_cache:/root/.cache/torch \
--v /path/to/huggingface_cache:/root/.cache/huggingface \
---rm cwq1913/lama-cleaner:cpu-0.26.1 \
-lama-cleaner --device=cpu --port=8080 --host=0.0.0.0
+```bash
+git clone https://github.com/Sanster/IOPaint.git
+cd IOPaint/web_app
+npm install
+npm run build
+cp -r dist/ ../iopaint/web_app
 ```
 
-### Run Docker (gpu)
-
-- cuda11.6
-- pytorch1.12.1
-- minimum nvidia driver 510.39.01+
-
+Create a `.env.local` file in `web_app` and fill in the backend IP and port.
 ```
-docker run --gpus all -p 8080:8080 \
--v /path/to/torch_cache:/root/.cache/torch \
--v /path/to/huggingface_cache:/root/.cache/huggingface \
---rm cwq1913/lama-cleaner:gpu-0.26.1 \
-lama-cleaner --device=cuda --port=8080 --host=0.0.0.0
+VITE_BACKEND=http://127.0.0.1:8080
 ```
 
-Then open [http://localhost:8080](http://localhost:8080)
-
-### Build Docker image
-
-cpu only
-
-```
-docker build -f --build-arg version=0.x.0 ./docker/CPUDockerfile -t lamacleaner .
+Start front-end development environment
+```bash
+npm run dev
 ```
 
-gpu & cpu
+Install back-end requirements and start backend service
+```bash
+pip install -r requirements.txt
+python3 main.py start --model lama --port 8080
+```
 
-```
-docker build -f --build-arg version=0.x.0 ./docker/GPUDockerfile -t lamacleaner .
-```
+Then you can visit `http://localhost:5173/` for development.
+The frontend code will automatically update after being modified,
+but the backend needs to restart the service after modifying the python code.
